@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso2</title>
+</head>
+
+<body style="background-color: grey;">
+    <strong>Teclee un IBAN con formaro 'AA## #### #### ## ########'</strong> <br>
+    <input type="text" id="iban" placeholder="Formato AA## #### #### ## ########">
+    <button id="boton" type="button">Validar</button>
+
+    <script type="text/javascript">
+        //Caso 2. Usar javaScript para validar una cuenta corriente. Formato AA## #### #### ## ########
+        var ibanRevisar = document.getElementById("iban").value.trim();
+        var boton = document.getElementById("boton");
+
+        boton.addEventListener("click", validaIban);//llama a la funcion valida iban
+
+        //AA12 1234 4567 12 12345678
+        function validaIban() {
+            let arrayIban = null;
+            let letra1, letra2 = null;
+
+            // 1. comprobar que tiene 4 espacios
+            if ((ibanRevisar.split(" ").length - 1) === 4) {
+
+                //2. separar los campos en un array
+                arrayIban = ibanRevisar.split(" ");
+
+                //3. validar la longitud de los campos del array
+                if (arrayIban[0].length != 4 || arrayIban[1].length != 4 || arrayIban[2].length != 4 || arrayIban[3].length != 2 || arrayIban[4].length != 8) {
+                    console.info("La lontigud del IBAN es incorrecta");
+                } else {
+                    //4. Validar primer campo: dos letras + dos numeros 
+                    letra1 = arrayIban[0].slice(0, 2).toUpperCase().charCodeAt(0); // almacenamos caracter1
+                    letra2 = arrayIban[0].slice(0, 2).toUpperCase().charCodeAt(1); // almacenamos caracter2
+
+                    // Revisar letras ascii entre 65 A y 90 Z y Revisar números isNaN = False si es número
+                    if (!((letra1 > 64 && letra1 < 91) && (letra2 > 64 && letra2 < 91)) || (isNaN(arrayIban[0].slice(2, 4)))) {
+                        console.info("Error en formato primer campo AA##");
+
+                        //3. validar que el resto de campos son/no son numéricos
+                        if (isNaN(arrayIban[1]) || isNaN(arrayIban[2]) || isNaN(arrayIban[3]) || isNaN(arrayIban[4])) {
+                            console.info("Algún campo numérico no lo es");
+                        }
+
+                    } else {
+                        console.info("El Formato es correcto");
+                    }
+                }
+            } else {
+                console.info("Formato de espacios es incorrecto")
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

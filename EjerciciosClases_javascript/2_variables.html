@@ -1,0 +1,40 @@
+<html>
+
+<head> </head>
+
+<body style="background-color: rgb(188, 194, 194)">
+    <script type="text/javascript">
+        var mensaje = "Hola Mundo"; //global se usa en cualquier parte del código
+        let saludo = "holaaaa!!"; // no se puede usar hasta despues de la declaración
+
+        const VALOR = 11;
+        /*
+              alert(mensaje)
+              alert(saludo)
+              alert(VALOR)
+              */
+
+        const SALUDOLOCAL = "que pasa"; //local
+        console.info(SALUDOLOCAL);
+
+        //console.info(SALUDOLOCAL)
+        var mensajeFuncion;
+
+        function mostrar() {
+            mensajeFuncion = "poca cosaaa"; //local
+        }
+        console.info(mensajeFuncion);
+
+        //ojo que es constante
+        //valor = 13
+        //console.info(valorLet)
+        let valorLet = "cosa let";
+        console.info(valorLet);
+
+        console.info(valorVar);
+        var valorVar = "cosa var";
+        console.info(valorVar);
+    </script>
+</body>
+
+</html>

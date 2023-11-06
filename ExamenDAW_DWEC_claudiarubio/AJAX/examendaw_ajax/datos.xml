@@ -1,0 +1,18 @@
+<ventas>
+    <producto>
+        <nombre>refreso</nombre>
+        <precio>10</precio>
+        <propina>2</propina>
+    </producto>
+    <producto>
+        <nombre>refreso</nombre>
+        <precio>12</precio>
+        <propina>12</propina>
+    </producto>
+    <producto>
+        <nombre>refreso</nombre>
+        <precio>10</precio>
+        <propina>1</propina>
+        <propina>1</propina>
+    </producto>
+</ventas>

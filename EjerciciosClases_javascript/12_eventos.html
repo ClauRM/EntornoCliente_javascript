@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio #1 DOM</title>
+
+
+</head>
+
+<body onload="saludo()">
+    <input type="text" id="casilla" />
+    <input type="text" id="casillaFoco" onfocus="saludo()" />
+    <button id="botonPika">Pika</button>
+    <button id="botonMov">Mover</button>
+
+
+    <script type="text/javascript">
+        //TECLADO
+        document.addEventListener("keydown", function(evento) {
+            console.log(evento)
+        })
+
+        //movimiento
+        var movimiento = document.getElementById('botonMov')
+        movimiento.addEventListener("mouseover", function() {
+            console.info('se mueve')
+        })
+
+        //RATÓN/BOTONES
+        var boton = document.getElementById('botonPika')
+        boton.addEventListener('click', function() {
+            console.info('pika pika')
+        })
+
+
+        //NAVEGADOR
+        function saludo() {
+            console.info('bueeeenas')
+                //alert("bueeenas")
+        }
+
+        function saludo2(texto) {
+            alert(texto)
+
+        }
+    </script>
+</body>
+
+</html>

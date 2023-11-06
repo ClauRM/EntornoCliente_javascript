@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <form action="ejemplo.php" method="get" id="formulario">
+        <p>Nombre: <input type="text" id="usuario" size="40"></p>
+
+        <input type="submit" value="Valorar">
+        </p>
+    </form>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("formulario").addEventListener('submit', validarFormulario);
+        });
+
+        function validarFormulario(evento) {
+            evento.preventDefault(); //detenemos el submit
+            var usuario = document.getElementById('usuario').value;
+            if (usuario.length == 0) {
+                alert('No has escrito nada en el usuario');
+                return;
+            }
+
+            this.submit(); //mandamos
+        }
+    </script>
+
+</body>
+
+</html>

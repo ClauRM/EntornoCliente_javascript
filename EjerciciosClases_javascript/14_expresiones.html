@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio #1 DOM</title>
+
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        //https://www.adictosaltrabajo.com/2015/01/29/regexsam/
+        //Son OBJETOS PARA RECONOCER PATRONES
+        //FUNCIONES: BUSCAR, LEER Y REEMPLAZAR
+        //SE USAN PARA VALIDAR FORMATO, NO LA SEMÁNTICA DEL CAMPO
+        // g - global BUSCA EN TODA LA CADENA
+        // i - ignorecase NO DISTINGUE ENTRE MAY O MIN
+        // m - multilínea para reconocer saltos
+
+        //search = indexof
+        //exec - busca coincidencias, devuelve un array o null
+        //test - busca coincidencias y devuelve un booleano
+        //match - busca coincidencias y devuelve un string
+
+        // . es un comodín
+        // \ anula el significado y se toma literal
+        // \t - tabulador
+        // \r - intro
+        // \n - nueva línea
+        // \d - 0-9
+        // \w - cualquier alfanumérico
+        // \s - espacio
+
+        // ^ - comienza con
+        //[] grupos de caracteres
+        // - son rangos
+        // | varias opciones
+        // $ termina con
+
+        var cadena = "AC/DC";
+        var regExp = /dc/ig;
+
+        console.info(cadena.search(regExp)); //posición de la /
+
+        cadena = "464654";
+        regExp = /[a-z]/g;
+
+        console.info(regExp.test(cadena)); //contiene letras min?
+
+        cadena = "asdh";
+        regExp = /^[a-z]/g;
+
+        console.info(regExp.test(cadena)); //comienza con
+
+        cadena = "asdh";
+        regExp = /[a-z]$/g;
+        //regExp = /^[a-z]+$/g;
+
+        console.info(regExp.test(cadena)); //termina con
+
+        cadena = "asdh";
+        regExp = /.Sd./ig;
+
+        console.info(regExp.test(cadena)); //usamos comodines
+
+        cadena = "asdh";
+        regExp = /a+$/ig;
+
+        console.info(regExp.test(cadena)); //usamos comodines
+
+        cadena = "la casa de la gata es de lata";
+        regExp = /ta/ig;
+
+        console.info(cadena.match(regExp)); //usamos comodines
+        console.info(regExp.exec(cadena)); //usamos comodines
+    </script>
+</body>
+
+</html>

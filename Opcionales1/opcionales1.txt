@@ -1,0 +1,17 @@
+Opcionales 1
+Contenido de la actividad
+
+Caso 1. Usar javaScript para validar un DNI. Formato ##.###.###-A
+
+Caso 2. Usar javaScript para validar una cuenta corriente. Formato AA## #### #### ## ########
+
+Caso 3. Usar javaScript para validar una fecha . Formato ##/##/####
+
+Caso 4. Usar javaScript para validar dos fechas. Deben tener formato fecha, 
+ambas deben ser del año actual, la primera debe ser inferior a la segunda.
+
+Caso 5. Usar javaScript para validar que una provincia está dentro del listado 
+de provincias españolas. Se deben eliminar los espacios antes y después del texto que se introduzca.
+Se compara tanto en mayúsculas como minúsculas.
+
+Entregar en un ZIP/RAR dentro de una carpeta con vuestro nombre.

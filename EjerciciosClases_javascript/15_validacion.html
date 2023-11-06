@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form action="ejemplo.php" method="post">
+        <p><input type="email" id="email" name="email"></p>
+        <p><input type="search" id="search" name="search"></p>
+        <p><input type="url" id="url" name="url"></p>
+        <p><input type="tel" id="tel" name="tel"></p>
+        <p><input type="number" name="age" id="age" min="1" max="10" step="2"></p>
+        <p><input type="number" name="change" id="pennies" min="0" max="1" step="0.01"></p>
+        <p><label for="price">Choose a maximum house price: </label>
+            <input type="range" name="price" id="price" min="50000" max="500000" step="100" value="250000">
+            <output class="price-output" for="price"></output></p>
+        <p> <input type="datetime-local" name="datetime" id="datetime"></p>
+        <p><input type="color" name="color" id="color"></p>
+        <p><select id="simple" name="simple">
+            <option>Banana</option>
+            <option selected>Cherry</option>
+            <option>Lemon</option>
+          </select></p>
+        <p> <select id="groups" name="groups">
+            <optgroup label="fruits">
+              <option>Banana</option>
+              <option selected>Cherry</option>
+              <option>Lemon</option>
+            </optgroup>
+            <optgroup label="vegetables">
+              <option>Carrot</option>
+              <option>Eggplant</option>
+              <option>Potato</option>
+            </optgroup>
+          </select></p>
+        <p><label for="myFruit">What's your favorite fruit?</label>
+            <input type="text" name="myFruit" id="myFruit" list="mySuggestion">
+            <datalist id="mySuggestion">
+                <option>Apple</option>
+                <option>Banana</option>
+                <option>Blackberry</option>
+                <option>Blueberry</option>
+                <option>Lemon</option>
+                <option>Lychee</option>
+                <option>Peach</option>
+                <option>Pear</option>
+            </datalist></p>
+        <p><progress max="100" value="75">75/100</progress></p>
+        <p><meter min="0" max="100" value="75" low="33" high="66" optimum="50">75</meter>
+        </p>
+
+
+        <input type="submit" value="Valorar">
+
+    </form>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            //https://developer.mozilla.org/es/docs/Web/HTML/Element/input
+
+            //https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types
+
+
+        }
+    </script>
+
+</body>
+
+</html>

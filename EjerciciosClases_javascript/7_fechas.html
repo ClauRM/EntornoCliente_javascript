@@ -1,0 +1,56 @@
+<html>
+
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body style="background-color: rgb(188, 194, 194);">
+
+    <div class="row">
+        <div class="col-md-2 col-lg-1"></div>
+        <div class="col-md-8 col-lg-10">
+            <form action="/action_page.php">
+                <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="input" class="form-control" id="email" placeholder="Enter email" name="email">
+                </div>
+
+
+                <button type="button" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+        <div class="col-md-2 col-lg-1"></div>
+    </div>
+
+
+
+
+    <script>
+        var hoy = new Date()
+        var unDia = new Date("December 12, 1980 03:24:00");
+        var otroDia = new Date(2021, 1, 05);
+        var otroDiaMas = new Date(2000, 14, 1, 15, 23, 59);
+
+        console.log(hoy)
+        console.log(hoy.getFullYear())
+        console.log(hoy.getMonth())
+        console.log(hoy.getDate());
+
+        //console.log(hoy.get..)
+
+        console.log(unDia)
+        console.log(otroDia)
+        console.log(otroDiaMas)
+
+        //se puede actualizar en tiempo real...
+    </script>
+</body>
+
+</html>

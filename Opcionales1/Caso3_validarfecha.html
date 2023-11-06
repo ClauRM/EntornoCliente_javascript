@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso3</title>
+</head>
+
+<body style="background-color: grey">
+    <strong>Teclee un DNI con formato ##/##/####</strong> <br>
+    <input type="text" id="fecha" placeholder="Formato ##/##/####">
+    <button id="boton" type="button">Validar</button>
+
+    <script type="text/javascript">
+        //Caso 3. Usar javaScript para validar una fecha . Formato ##/##/####
+
+        //var fecha = '42/12/1234';
+        var fechaRevisar = document.getElementById("fecha").value.trim();
+
+        var boton = document.getElementById("boton");
+
+        boton.addEventListener("click", validaFecha);//llama a la funcion valida fecha
+
+        function validaFecha() {
+
+            //1. Validar que tiene dos /
+            if ((fechaRevisar.split("/").length - 1) === 2) {
+                let fechaFormateada = new Date(); //variable para convertir fecha texto en fecha
+                let arrayFecha = null; //variable array para almacenar día, mes, annio
+
+                //2. Separar en array 
+                arrayFecha = fechaRevisar.split("/");
+
+                //3. Validar lontigud de campos: 2,2,4
+                if (arrayFecha[0].length != 2 || arrayFecha[1].length != 2 || arrayFecha[2].length != 4) {
+                    console.info("La longitud de fecha no es correcta");
+                } else {
+                    //3. Validar que sean numeros
+                    if (isNaN(arrayFecha[0]) || isNaN(arrayFecha[1]) || isNaN(arrayFecha[2])) {
+                        console.info("La fecha debe ser numerica");
+                    } else {
+                        //4. Validar que se puede convertir en una fecha: parsear aaaa-mm-dd y crear la fecha
+                        console.info("seguir revisando...");
+                        fechaFormateada = Date.parse(arrayFecha[2] + "-" + arrayFecha[1] + "-" + arrayFecha[0]);//parseando fecha
+
+                        if (fechaFormateada == NaN) {//devuelve NaN si no es una fecha valida
+                            console.info("No es una fecha válida");
+                        } else {
+                            console.info("La fecha es correcta"); // valida que es fecha correcta?
+                        }
+                    }
+
+                }
+
+            } else {
+                console.info("El formato es incorrecto");
+            }
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

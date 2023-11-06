@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link id="estilos" rel="stylesheet" href="css/dia.css">
+</head>
+
+<body>
+
+
+    <select class="transporte" name="listaTransportes">
+
+        <option>Coche</option>
+        
+        <option>Avión</option>
+        
+        <option>Tren</option>
+        
+    </select>
+
+
+    <p id="seleccion">0</p>
+
+    <select id="asientos">
+        <option>Coche</option>
+        
+        
+    </select>
+
+    <script>
+        const selectElement = document.querySelector('.transporte');
+
+        selectElement.addEventListener('change', (event) => {
+            let seleccion = document.getElementById("seleccion")
+            seleccion.innerHTML = event.target.value
+            valores(event.target.value)
+        });
+
+        function valores(tipo) {
+            let listado = document.getElementById("asientos")
+            const coches = ['2 puertas', '3 puertas', '5 puertas']
+            const trenes = ['Vagón 1', 'Vagón 2']
+            const aviones = ['primera', 'turista']
+
+            var option
+
+            for (let i = listado.length; i >= 0; i--) {
+                listado.remove(i);
+            }
+
+            switch (tipo) {
+                case "Coche":
+                    for (let i = 0; i < coches.length; i++) {
+                        option = document.createElement('option') // <option value='2 puertas'>2 puertas</option>
+                        option.value = coches[i]
+                        option.text = coches[i]
+                        listado.appendChild(option)
+                        console.info(option)
+                    }
+                    break;
+                case "Tren":
+                    for (let i = 0; i < trenes.length; i++) {
+                        option = document.createElement('option')
+                        option.value = trenes[i]
+                        option.text = trenes[i]
+                        listado.appendChild(option)
+                        console.info(option)
+                    }
+                    break;
+                case "Avión":
+                    for (let i = 0; i < aviones.length; i++) {
+                        option = document.createElement('option')
+                        option.value = aviones[i]
+                        option.text = aviones[i]
+                        listado.appendChild(option)
+                        console.info(option)
+                    }
+                    break;
+
+                default:
+                    console.info(tipo)
+
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>

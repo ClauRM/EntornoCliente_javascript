@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validaciones</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body>
+    <div id="contenedor">
+        <div id="titulo">
+            <strong>Sin usar expresiones regulares:</strong>
+        </div>
+        <div id="caso1">
+            <p>Caso 1. Usar javaScript para validar un DNI. Formato ##.###.###-A</p>
+            <input type="text" id="dni" placeholder="Formato ##.###.###-A">
+            <button id="botondni" type="button">Validar</button>
+            <div class="mensajes" id="mensajedni"></div>
+        </div>
+        <div id="caso2">
+            <p>Caso 2. Usar javaScript para validar una cuenta corriente. Formato AA## #### #### ## ########</p>
+            <input type="text" id="iban" placeholder="Formato AA## #### #### ## ########">
+            <button id="botoniban" type="button">Validar</button>
+            <div class="mensajes" id="mensajeiban"></div>
+        </div>
+        <div id="caso3">
+            <p>Caso 3. Usar javaScript para validar una fecha. Formato ##/##/####</p>
+            <input type="text" id="fecha" placeholder="Formato ##/##/####">
+            <button id="botonfecha" type="button">Validar</button>
+            <div class="mensajes" id="mensajefecha"></div>
+        </div>
+        <div id="caso4">
+            <p>Caso 4. Usar javaScript para validar dos fechas. Formato ##/##/####. Ambas deben ser del año
+                actual, la primera debe ser inferior a la segunda.</p>
+            <input type="text" id="fecha1" placeholder="Formato ##/##/####"><br>
+            <input type="text" id="fecha2" placeholder="Formato ##/##/####">
+            <button id="botondosfechas" type="button">Validar</button>
+            <div class="mensajes" id="mensajedosfechas"></div>
+        </div>
+        <div id="caso5">
+            <p>Caso 5. Usar javaScript para validar que una provincia está dentro del listado de provincias españolas.
+                Se deben eliminar los espacios antes y después del texto que se introduzca. Se compara tanto en
+                mayúsculas como minúsculas.</p>
+            <input type="text" id="provincia" placeholder="Introduzca provincia">
+            <button id="botonprovincia" type="button">Validar</button>
+            <div class="mensajes" id="mensajeprovincia"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="script/validaciondni.js"></script>
+    <script type="text/javascript" src="script/validacioniban.js"></script>
+    <script type="text/javascript" src="script/validacionfecha.js"></script>
+    <script type="text/javascript" src="script/validaciondosfechas.js"></script>
+    <script type="text/javascript" src="script/validacionprovincia.js"></script>
+</body>
+
+</html>

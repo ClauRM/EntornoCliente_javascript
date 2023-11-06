@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+    <p>Min: <input type="text" id="min" size="40" value="0"></p>
+    <p>Max: <input type="text" id="max" size="40" value="10"></p>
+    <p>Bajo: <input type="text" id="bajo" size="40" value="4"></p>
+    <p>Alto: <input type="text" id="alto" size="40" value="9"></p>
+    <p>Optimo: <input type="text" id="optimo" size="40" value="7"></p>
+    <p>Valor: <input type="text" id="valor" size="40" value="5"></p>
+    <p><meter id="termometro" min="0" max="100" value="75" low="33" high="66" optimum="50">0</meter>
+        <input type="button" id="boton" value="Valorar" onclick="valorar()">
+    </p>
+    <p id="info">Información</p>
+
+
+
+    <script>
+        function valorar() {
+
+            var valor = document.getElementById('valor');
+            var barra = document.getElementById('termometro');
+            var info = document.getElementById('info');
+
+
+            if (valor.length == 0) {
+                alert('No has escrito nada en el usuario');
+            } else {
+                barra.min = document.getElementById('min').value
+                barra.max = document.getElementById('max').value
+                barra.low = document.getElementById('bajo').value
+                barra.high = document.getElementById('alto').value
+                barra.optimun = document.getElementById('optimo').value
+                barra.value = valor.value;
+                info.innerHTML = "Estas a " + (barra.optimun - barra.value) + " del valor optimo"
+
+                document.getElementById("valor").focus();
+
+            }
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>

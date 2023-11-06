@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body>
+    <div id="contenedor">
+        <strong>ANIMACIONES</strong>
+        <div id="caso1">
+            <p>1. Un DIV cambiará de color (opcional al azar) cada segundo (opcional elegir el periodo).</p>
+            <div id="color" style="width:100%;"><br><br><br><br>
+            </div><br>
+        </div>
+        <div id="caso2">
+            <p>2. Al pulsar un botón se marcarán en negrita (o mediante cualquier otra opción que lo resalte) los
+                nombres subrayados de este texto:</p>
+            <button id="boton" type="button">Resaltar</button>
+            <p id="texto">
+                "<b><em>Harry Potter</em></b> es una serie de <u>novelas fantásticas</u> escrita por la autora británica
+                <u>J. K. Rowling</u>, en la
+                que se describen las aventuras del joven aprendiz de magia y hechicería <u>Harry Potter</u> y sus amigos
+                <u>Hermione Granger</u> y <u>Ron Weasley</u>, durante los años que pasan en el <u>Colegio Hogwarts de
+                    Magia y Hechicería</u>. El argumento se centra en la lucha entre Harry Potter y el malvado mago
+                <u>lord Voldemort</u>, quien asesinó a los padres de Harry en su afán de conquistar el mundo mágico."
+            </p><br>
+        </div>
+        <div id="caso3">
+            <p>3. Crear un formulario con 3 campos. Las etiquetas a la izquierda de cada campo que informan del dato a
+                introducir en las casillas de texto estarán en rojo. Al teclear al menos dos letras en su campo de texto
+                a la derecha pasará a color negro.</p>
+            <form action="" id="formulario">
+                <div>
+                    <label for="campo1">Casilla 1</label>
+                    <input type="text" id="campo1" placeholder="Cumplimente casilla 1">
+                </div>
+                <div>
+                    <label for="campo2">Casilla 2</label>
+                    <input type="text" id="campo2" placeholder="Cumplimente casilla 2">
+                </div>
+                <div>
+                    <label for="campo3">Casilla 3</label>
+                    <input type="text" id="campo3" placeholder="Cumplimente casilla 3">
+                </div>
+            </form>
+        </div>
+        <div id="caso4">
+            <p>4. ¿Se puede eliminar una imagen pinchando encima?</p>
+            <img id="imagen" src="img/delorean.png" width="300">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="script/animaciones_div_texto_form_img.js"></script>
+</body>
+
+</html>

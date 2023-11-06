@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+</head>
+
+<body>
+    <button onclick="insertar()"> Insertar datos </button>
+    <button onclick="borrarDatos()"> Eliminar toda la tabla </button>
+    <button onclick="modificar (1, 'Lola', '654321')"> Actualice los datos del No. 1 </button>
+    <button onclick="consultar()"> Consultar datos </button>
+
+    <div id="demo">
+
+    </div>
+
+    <script type="text/javascript">
+        // Si se crea el nombre de la base de datos, el nombre de la tabla se ha creado en otro webSQL anteriormente, entonces se hará referencia directa al contenido de los datos y no se creará ninguna nueva.
+        // Establecer nombre de la base de datos, versión, grupo de conexiones, tamaño
+        var webbd = window.openDatabase("datos.db", "1.0", null, 20000);
+        // crear tabla
+        webbd.transaction(function(tr) {
+            tr.executeSql("create table usuarios(_id integer primary key autoincrement,nombre text,clave text)")
+                //tr.executeSql("drop table usuarios")
+
+        })
+
+        // Agregar, eliminar y modificar el formato webbd.executeSql ("instrucción sql", [parámetro])
+        // Insertar datos
+        function insertar() {
+            webbd.transaction(function(tr) {
+                console.log(tr); // Una SQLTransaction {}
+                tr.executeSql("insert into usuarios (nombre, clave) values (?,?)", ["isabela", "000000"]);
+
+            })
+        }
+        // Eliminar la base de datos
+        function borrarDatos() {
+            webbd.transaction(function(tr) {
+                tr.executeSql("drop table usuarios");
+            })
+        }
+
+        // Modificar los datos
+        function modificar(id, nuevoNombre, nuevaClave) {
+            webbd.transaction(function(tr) {
+                tr.executeSql("update usuarios set nombre=?,clave=? where _id=?", [nuevoNombre, nuevaClave, id]);
+            })
+        }
+        // Consultar datos
+        function consultar() {
+            webbd.transaction(function(tr) {
+                // resultado devuelve una matriz
+                tr.executeSql('select * from usuarios', [], function(tr, result) {
+                        console.log(result);
+                        var contenido = "";
+                        for (var i = 0; i < result.rows.length; i++) {
+                            let dd = result.rows[i];
+                            contenido += "<p>" + dd._id + " - " + dd.nombre + " >>> " + dd.clave + "</p>";
+
+                        }
+                        $("#demo").html(contenido);
+                    }) //tr.executeSql
+            })
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

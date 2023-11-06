@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <form action="otrositio.html" method="get" id="formulario" onsubmit="return validarFormulario()">
+        <p>Nombre: <input type="text" id="usuario" size="40"></p>
+
+        <input type="submit" value="Valorar">
+        </p>
+    </form>
+
+
+    <script>
+        function validarFormulario() {
+            var permiso = true
+            var usuario = document.getElementById('usuario').value;
+            if (usuario.length == 0) {
+                alert('No has escrito nada en el usuario');
+                permiso = false
+            }
+
+            return permiso
+        }
+    </script>
+
+</body>
+
+</html>

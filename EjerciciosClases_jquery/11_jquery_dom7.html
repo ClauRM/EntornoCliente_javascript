@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>empty demo</title>
+    <style>
+        p {
+            background: yellow;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+
+    <p id="demo">
+        Hello, <span>Person</span> <em>and person</em>.
+    </p>
+
+    <button>Call empty() on above paragraph</button>
+    <button onclick="myStopFunction()">Stop time</button>
+    <script>
+        const myInterval = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            const date = new Date();
+            console.info("entro")
+            document.getElementById("demo").innerHTML = date.toLocaleTimeString();
+            console.info("salgo")
+        }
+
+        function myStopFunction() {
+            clearInterval(myInterval);
+            console.info("parar")
+        }
+    </script>
+
+</body>
+
+</html>

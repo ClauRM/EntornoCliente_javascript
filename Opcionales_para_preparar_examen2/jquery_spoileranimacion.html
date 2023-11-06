@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body>
+    <div id="contenedor">
+        <strong>Con jQuery:</strong>
+        <div id="caso1">
+            <p>1. Realizar un botón SPOILER. Mostrará el contenido de un DIV solo si se pulsa.</p>
+            <button id="spoiler" type="button">Spoiler</button>
+            <div id="mensaje" hidden><strong>La vida es bella!</strong></div> <!--propiedad hidden para ocultar-->
+        </div>
+        <div id="caso2">
+            <p>2. Anima una foto, desaparecerá al pulsar un botón.</p>
+            <button id="animar" type="button">Animar</button>
+            <div>
+                <img id="imagen" src="img/delorean.png" >
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="script/jquery-3.6.3.min.js"></script>
+<script type="text/javascript" src="script/jquery_spoileranimacion.js"></script>
+
+</html>

@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>toggle demo</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+
+
+
+    <script type="text/javascript">
+        //se usa en casos para ocultar y mostrar elementos de una página web, aunque también funciona como switch entre 2 funciones
+
+        $(document).ready(function() {
+            $("#boton").click(function() {
+                $('#target').toggle("slow");
+            });
+            $("#boton1").click(function() {
+                $('#target').toggle("fast");
+            });
+            $("#boton2").click(function() {
+                $('#target').toggle(5000);
+            });
+
+            //$('#target').toggle("swing");Con ‘linear‘ el efecto se ejecuta con velocidad constante.
+
+            //$('#target').toggle("linear");Mientras que con ‘swing‘ el efecto va ligeramente más rapido en la mitad de la animación.
+
+
+        });
+    </script>
+    <div id="target"><img src="img/ninfa.png">
+        <form action="/action_page.php">
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd">
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+    <input id="boton" type="button" value="toggle() con efecto slow">
+    <input id="boton1" type="button" value="toggle() con efecto fast">
+    <input id="boton2" type="button" value="toggle() con efecto de 5000 milisegundos">
+</body>
+
+</html>

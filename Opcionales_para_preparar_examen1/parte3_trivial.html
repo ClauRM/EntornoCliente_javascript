@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivial</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body>
+    <div id="contenedor">
+        <div id="caso1">
+            <p>Dada una pregunta tipo test con 4 respuestas posibles, al pulsar el botón "RESOLVER", la respuesta
+                correcta debe quedar coloreada de verde, las incorrectas de rojo.
+                ¿Es posible cambiar el texto de un botón cuando simplemente pasamos el cursor del ratón por encima? </p>
+            <div id="pregunta">
+                <p>¿En qué posición juega Harry en su equipo de Quidditch?</p>
+                <form id="formulario" action="">
+                    <input type="radio" id="cazador1" name="respuestas" value="cazador">
+                    <label for="cazador1" id="cazador">Cazador</label><br>
+
+                    <input type="radio" id="guardian1" name="respuestas" value="guardian">
+                    <label for="guardian1" id="guardian">Guardián</label><br>
+
+                    <input type="radio" id="bludger1" name="respuestas" value="bludger">
+                    <label for="bludger1" id="bludger">Bludger</label><br>
+
+                    <input type="radio" id="buscador1" name="respuestas" value="buscador">
+                    <label for="buscador1" id="buscador">Buscador</label><br>
+
+                    <button id="resolver" type="button">Resolver</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="script/domrespuestas.js"></script>
+
+</html>

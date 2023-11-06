@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+</head>
+
+<body>
+    <div>
+        <p>Ver resultado por consola</p>
+    </div>
+    <script type="text/javascript">
+
+        //variables
+        let numeros = [1, 5, 23, 4, 12, 45];
+        let numero;
+        let resultado = [];
+        let resultado2;
+
+        //haciendo filtro con un for y un if
+        for (let i = 0; i < numeros.length; i++) {
+            numero = numeros[i];
+            if (numero > 10) { //si el numero de la posicion es mayor que i
+                resultado.push(numero); //se aniade push del numero al array resultado
+            }
+        }
+        console.log("resultado con for tradicional: " + resultado);
+
+        //haciendo filtro con la funcion filtro
+        //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+        resultado2 = numeros.filter(numero => numero > 10);
+        console.log("resultado con filter: " + resultado2);
+
+    </script>
+</body>
+
+</html>

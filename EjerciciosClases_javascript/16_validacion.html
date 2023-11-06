@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+    <p>Min: <input type="text" id="min" size="40"></p>
+    <p>Max: <input type="text" id="max" size="40"></p>
+    <p>Valor: <input type="text" id="valor" size="40"></p>
+    <p>Bajo: <input type="text" id="bajo" size="40"></p>
+    <p>Alto: <input type="text" id="alto" size="40"></p>
+    <p>Óptimo: <input type="text" id="optimo" size="40"></p>
+
+
+
+    <p><meter id="barra" min="0" max="100" value="75" low="33" high="66" optimum="50">75</meter>
+    </p>
+
+
+    <button type="button" onclick="myFunction()">Ejecutar</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+
+            let barra = document.getElementById("barra")
+            let texto = document.getElementById("demo")
+
+            barra.min = document.getElementById("min").value
+            barra.max = document.getElementById("max").value
+            barra.low = document.getElementById("bajo").value
+            barra.high = document.getElementById("alto").value
+            barra.optimum = document.getElementById("optimo").value
+            barra.value = document.getElementById("valor").value
+            texto.innerHTML = "Completado"
+            document.getElementById("valor").focus()
+
+        }
+    </script>
+
+</body>
+
+</html>

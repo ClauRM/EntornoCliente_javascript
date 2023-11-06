@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso1</title>
+</head>
+
+<body style="background-color: grey;">
+    <strong>Teclee un DNI con formato ##.###.###-A</strong> <br>
+    <input type="text" id="dni" placeholder="Formato ##.###.###-A">
+    <button id="boton" type="button">Validar</button>
+
+
+    <script type="text/javascript">
+        //Caso 1. Usar javaScript para validar un DNI. Formato ##.###.###-A
+
+        var dniRevisar = document.getElementById("dni").value.trim(); //declaracion variable
+        var boton = document.getElementById("boton");
+
+        boton.addEventListener("click", validarDni);//llama a la funcion valida dni
+
+        function validarDni() {
+
+            //1. validar que la longitud es de 12
+            if (dniRevisar.length < 12) { //si la longitud es menor de 12 se detiene
+                console.info("Longitud incorrecta");
+
+                //2. si es correcto, validar la posicion de los puntos y el guion
+            } else if (dniRevisar.indexOf('.') === 2 && dniRevisar.lastIndexOf('.') === 6) { // indexOf encuentra el primer punto y lastIndexOf el ultimo
+                if (dniRevisar.lastIndexOf('-') === 10) {
+
+                    //3. si es correcto, validar las partes numericas y la parte string
+                    if (!isNaN(dniRevisar.slice(0, 2)) && !isNaN(dniRevisar.slice(4, 6)) && !isNaN(dniRevisar.slice(8, 10))) {
+
+                        //valida que los tres campos entre puntos sean numericos. False si es un numero
+                        if ((dniRevisar.toUpperCase().charCodeAt(dniRevisar.length - 1)) > 64 && (dniRevisar.toUpperCase().charCodeAt(dniRevisar.length - 1)) < 91) {
+                            //convierte caracter en codigo ascii y valida si esta entre 65 A y 90 Z
+                            console.info("El " + dniRevisar + " cumple el formato solicitado");
+                        } else {
+                            console.info("DNI no contiene letra o en posición incorrecta");
+                        }
+                    } else {
+                        console.info("DNI numérico o en posición incorrecta");
+                    }
+                }
+            } else {
+                console.info("El formato de punto y guión es incorrecto");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

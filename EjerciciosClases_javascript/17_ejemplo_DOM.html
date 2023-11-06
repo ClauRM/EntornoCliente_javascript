@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <form action="ejemplo.php" method="get">
+        <p>Nombre: <input type="text" id="nombre" size="40"></p>
+        <p>Año de nacimiento: <input type="number" id="nacido" min="1900"></p>
+        <p>Sexo:
+            <input type="radio" name="hm" id="hombre" value="h"> Hombre
+            <input type="radio" name="hm" id="mujer" value="m"> Mujer
+        </p>
+        <p>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Borrar">
+            <input type="button" onclick="myFunction()" value="Valorar">
+        </p>
+    </form>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+
+
+            let nombre = document.getElementById("nombre").value
+            let nacido = document.getElementById("nacido").value
+            let genero1 = document.getElementById("hombre").checked
+            let genero2 = document.getElementById("mujer").checked
+
+
+
+            console.info(nombre)
+            console.info(nacido)
+            console.info(genero1)
+            console.info(genero2)
+
+            document.getElementById("hombre").checked = true
+            document.getElementById("mujer").checked = true
+            document.getElementById("nombre").value = "hola"
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>

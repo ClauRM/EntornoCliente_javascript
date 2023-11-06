@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        //https://learn.jquery.com/ajax/
+        //https://www.w3schools.com/jquERy/jquery_ref_overview.asp
+
+        $(document).ready(function() {
+            $("button").click(function() {
+                $("#div1").load("http://localhost/dashboard/faq.html");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="div1">
+        <h2>hola mundo</h2>
+    </div>
+
+    <button>Carga</button>
+
+</body>
+
+</html>

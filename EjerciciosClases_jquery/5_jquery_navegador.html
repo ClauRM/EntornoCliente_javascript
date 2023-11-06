@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body id="log">
+
+
+
+    <script>
+        $(window).resize(function() {
+            $("#log").append("<div>se redimensiona</div>");
+        });
+
+        $(window).scroll(function() {
+            $("#log").append("<div>hay desplazamiento</div>");
+        });
+    </script>
+</body>
+
+</html>

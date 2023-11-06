@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+</head>
+
+<body style="background-color: rgb(188, 194, 194);">
+
+    <script>
+        var cadena1 = 'Hola';
+        var cadena2 = 'Mundo';
+
+        //charAt(índice)
+        //Este método retorna el caracter que se encuentra situado en la posición indicada por la variable “índice”. 
+        //Se debe anotar que los Strings comienzan siempre desde el índice cero.
+        console.info(cadena1.charAt(1));
+
+        //indexOf(caracter,desde)
+        //Este método retorna la posición o el índice en que por primera vez se localiza el caracter dentro de la cadena de String. 
+        //El parámetro “desde”, permite establecer el índice a partir del cual buscar dicho caracter.
+        console.info(cadena1.indexOf("a", 1));
+
+        //lastIndexOf(caracter,desde)
+        //Este método es muy parecido al anterior, pero devuelve la última coincidencia que encuentra del caracter.
+
+        //replace(substring_a_buscar,nuevoStr)
+        //Este método sirve para reemplazar una cadena de texto por otra.
+        console.info(cadena2.replace("n", 1)); //reemplaza la n por un 1 Mu1do
+
+        //split(separador)
+        //Este método permite obtener un array de String, el cual es separado con un separador que es pasado como parámetro.
+        console.info(cadena1.split(""));//separa la cadena por caracteres
+
+        //substring(inicio,fin)
+        //Este método devuelve un substring, el cual comienza en la variable “inicio” y termina en el caracter marcado por la variable de “fin”.
+        console.info(cadena2.substring(1, 4));
+
+        //toLowerCase()
+        //Este método pone todos los caracteres del String en minúscula.
+        console.info(cadena2.toLowerCase());
+
+        //toUpperCase()
+        //Este método pone todos los caracteres del String en mayúscula.
+        console.info(cadena2.toLocaleUpperCase());
+
+    </script>
+
+</body>
+
+</html>

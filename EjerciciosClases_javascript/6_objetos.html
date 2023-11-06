@@ -1,0 +1,64 @@
+<html>
+
+<head>
+
+</head>
+
+<body style="background-color: rgb(188, 194, 194);">
+
+    <script>
+        //Consultar: https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/Object-oriented_JS
+
+        //objeto declarativo / literal
+        var alumno = {
+            nombre: 'pepe',
+            edad: 27,
+            mostrar: function() {
+                    console.info('hola')
+                }
+                /*si necesitas más funciones las separa con ,
+                , otrafuncion: function()...
+                */
+        }
+        console.info(alumno.nombre)
+        console.info(alumno.edad)
+        alumno.mostrar()
+
+
+        function Alumno(datoNombre, datoEdad) {
+            this.nombre = datoNombre;
+            this.edad = datoEdad;
+
+            this.mostrar = function(dato) {
+                console.info(this.nombre + dato)
+            };
+
+        }
+
+        var lola = new Alumno('Lola', 19)
+        var pepe2 = new Alumno('Pepe', 23)
+
+        lola.mostrar(' que tal')
+
+        //objeto construido
+        var AlumnoPepe = new Object({
+            nombre: 'Pepe',
+            edad: 30,
+            mostrar: function() {
+                console.info('soy pepe')
+            }
+        })
+        var AlumnoLola = new Object({
+            nombre: 'Pepe',
+            edad: 30,
+            mostrar: function() {
+                console.info('soy pepe')
+            }
+        })
+
+        AlumnoPepe.mostrar()
+        AlumnoLola.mostrar()
+    </script>
+</body>
+
+</html>

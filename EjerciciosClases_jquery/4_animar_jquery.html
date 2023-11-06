@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>toggle demo</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#boton").click(function() {
+                $("#ninfa").animate({
+                    opacity: 0.25,
+                    height: "toggle"
+                }, 5000, function() {
+                    // Animation complete.
+                });
+            });
+        });
+
+        //ver ejemplos en https://api.jquery.com/animate/
+    </script>
+    <p><img id="ninfa" src="img/ninfa.png" style="position: relative; left: 10px;"></p>
+    <input id="boton" type="button" value="Animando!">
+
+</body>
+
+</html>

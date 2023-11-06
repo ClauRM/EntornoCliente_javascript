@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Foto</title>
+</head>
+
+<body>
+    <input type="file" onchange="previewFile()"><br> <!--cuando se presione llama a la funcion previewFile()-->
+    <img src="" height="200" alt="Image preview...">
+
+    <script>
+        function previewFile() {
+            const preview = document.querySelector('img'); //caja de vista previa
+            const file = document.querySelector('input[type=file]').files[0]; //datos del fichero leido
+            const reader = new FileReader(); //objeto de la clase FileReader
+
+            reader.addEventListener("load", function () {
+                // convierte la imagen a una cadena en base64
+                preview.src = reader.result; //cuando se cargue la foto vista previa = fichero leido
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file); //fichero leido
+            }
+        }
+    </script>
+</body>
+
+</html>

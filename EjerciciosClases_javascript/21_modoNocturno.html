@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link id="estilos" rel="stylesheet" href="css/dia.css">
+</head>
+
+<body>
+
+
+
+    <p>Modo: <input type="button" id="boton" value="Noche" onclick="modo('noche')"></p>
+    <p>Modo: <input type="button" id="boton" value="Día" onclick="modo('dia')"></p>
+
+
+
+
+    <script>
+        function modo(tipo) {
+            console.info(tipo)
+            if (tipo == 'noche') {
+                console.info('noche')
+                document.getElementById('estilos').href = 'css/noche.css';
+            } else {
+                console.info('dia')
+                document.getElementById('estilos').href = 'css/dia.css';
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio #1 DOM</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        /*
+                                                                                                                                                                \t: representa un tabulador.
+                                                                                                                                                                \r: representa el "retorno de carro".
+                                                                                                                                                                \n: representa la "nueva línea".
+                                                                                                                                                                \e: representa la tecla "Esc" o "Escape".
+                                                                                                                                                                \f: se utiliza para representar caracteres ASCII o ANSI si se conoce su código. Por ejemplo el símbolo © es representado mediante "\fA9".
+                                                                                                                                                                \x: se utiliza para representar caracteres Unicode si se conoce su código. Por ejemplo, "\u02" representa el símbolo de centavos.
+                                                                                                                                                                \u: se utiliza para representar caracteres Unicode si se conoce su código. Por ejemplo, "\u00A2" representa el símbolo de centavos.
+                                                                                                                                                                \d: representa un dígito del 0 al 9.
+                                                                                                                                                                \w: representa cualquier carácter alfanumérico (incluidos los guiones bajos _).
+                                                                                                                                                                \s: representa un espacio en blanco (espacios en blanco, tabuladores y nuevas líneas).
+                                                                                                                                                                \b: marca el inicio y el final de una palabra.
+                                                                                                                                                                Para los caracteres d, w y s, se puede utlizar su variante en mayúsculas para indicar justamente su significado opuesto.
+
+                                                                                                                                                                \D: representa cualquier carácter que no sea un dígito del 0 al 9.
+                                                                                                                                                                \W: representa cualquier carácter no alfanumérico.
+                                                                                                                                                                \S: representa cualquier carácter que no sea un espacio en blanco.
+                                                                                                                                                                */
+
+        var notABC = /[^ABC]/; // que no sea A,B o C
+        var palabra = "ABABABC1ABAB";
+        console.log(palabra.search(notABC));
+
+        var saludo = /(Hola|Buenas|Jelou) (que tal|que hay|guachap)/i; //Los paréntesis agrupan
+        console.log(saludo.test("Hola que pasa!"));
+
+        saludo = /(Hola|Buenas|Jelou)(que tal|que hay|guachap)?/i; //Los paréntesis agrupan
+        console.log(saludo.test("Hola!"));
+
+        var numero = /^\d{2}/; //las llaves indican numero mínimo de caracteres
+        console.log(numero.test("12")); // true
+        console.log(numero.test("1"));
+        numero = /^[0-9]{2,5}$/; //las llaves indican numero mínimo y máximo de caracteres
+        console.log(numero.test("123")); // true
+        console.log(numero.test("12345"));
+    </script>
+</body>
+
+</html>

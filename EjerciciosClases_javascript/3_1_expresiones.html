@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio #1 DOM</title>
+
+
+</head>
+
+<body>
+    <input type="text" id="casilla" />
+
+    <button id="botonPika">Pika</button>
+
+
+    <script type="text/javascript">
+        //comodines 
+        //. =cualquiera
+        // \t= tabulador
+        // \r= retorno
+        // \n= nueva línea
+        // \d= número 0-9
+        // \w= cualquier alfanumérico
+        // \s= espacio
+
+        //[] para grupos de caracteres y rangos
+        //| para indicar varias opciones posibles
+        //$ final de la cadena string
+
+        //search= buscar el patrón, "similar" al indexof
+        //exec= buscar todas las coincidencias y los mete en array o null si no encuentra
+        //test= busca y devuelve un boolean
+        //match= busca todas las ocurrencias y las devuelve
+
+        var boton = document.getElementById('botonPika')
+        boton.addEventListener('click', function() {
+            var expReg = /-/g; //g - que exista al menos 1
+            var expReg = /\//g; //ojo a la barra
+            var expReg2 = /[a-z]|[A-Z]$/; //solo letras
+            var expReg3 = /ES[0-9][0-9]$/; //formato iban
+
+            var cadena = document.getElementById("casilla").value
+            console.info(cadena)
+                //es factura 0123/2020?
+            console.info(cadena.search(expReg))
+            console.info(expReg2.test(cadena))
+            console.info(expReg3.test(cadena))
+
+
+
+        })
+    </script>
+</body>
+
+</html>

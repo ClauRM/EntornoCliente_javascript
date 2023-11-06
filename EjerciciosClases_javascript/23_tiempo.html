@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p id="fecha"></p>
+
+    <input type="button" id="stop" onclick="parar()" value="STOP">
+    <input type="button" id="play" onclick="iniciar()" value="PLAY">
+
+
+    <script>
+        var fecha = document.getElementById("fecha")
+
+        var tiempo = setInterval(function() {
+            fecha.innerHTML = Date()
+        }, 1000);
+
+        function parar() {
+            clearInterval(tiempo)
+        }
+
+        function iniciar() {
+            tiempo = setInterval(function() {
+                fecha.innerHTML = Date()
+            }, 1000);
+        }
+    </script>
+
+</body>
+
+</html>

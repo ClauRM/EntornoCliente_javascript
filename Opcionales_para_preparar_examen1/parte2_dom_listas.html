@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body>
+    <div id="contenedor">
+        <div id="caso1">
+            <p>Usando DOM, actualiza el contenido de una lista desplegable escribiendo sus nuevos valores en una casilla
+                de texto. El dato se añade al pulsar intro en la casilla.</p>
+            <input type="text" id="texto" placeholder="Introduzca texto">
+            <div>
+                <select name="listadesplegable" id="listadesplegable">
+                </select>
+            </div>
+        </div>
+        <div id="caso2">
+            <p>Usando DOM, introduce una palabra en una casilla. Escribe una lista (UL) con los valores de las
+                diferentes
+                letras que componen la palabra escrita. La acción se desencadena al pulsar un botón.</p>
+            <input type="text" id="palabra" placeholder="Introduzca texto">
+            <button id="aniadirpalabra" type="button">Añadir</button>
+            <div>
+                <ul id="listadopalabra">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="script/manipulaciondom.js"></script>
+
+</html>

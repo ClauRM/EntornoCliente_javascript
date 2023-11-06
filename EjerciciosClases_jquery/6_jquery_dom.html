@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body id="log">
+
+
+
+
+    <script>
+        //notifica la carga de los script
+        $.holdReady(true);
+        $.getScript("https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js", function() {
+            $.holdReady(false);
+        });
+
+        //notifica la carga de un recurso
+        $.when(
+            $.getJSON("ajax/datos.json"),
+            $.ready
+        ).done(function(data) {
+            // Document is ready.
+            // Value of test.json is passed as `data`.
+        });
+
+        $("img.userIcon").load(function() {
+            if ($(this).height() > 100) {
+                $(this).addClass("bigImg");
+            }
+        });
+        //HACER ALGO AL FINAL
+        $(window).unload(function() {
+            return "Bye now!";
+        });
+    </script>
+</body>
+
+</html>

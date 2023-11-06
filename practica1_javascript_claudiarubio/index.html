@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <title>practica1_claudiarubio</title>
+</head>
+
+<body>
+
+    <!--TITULO PRINCIPAL-->
+    <div class=".container-fluid border bg-primary text-center fs-1 fw-bold">DIGITAL VCARD QR
+        <p class="h3 "><small>By Claudia Rubio</small></p>
+    </div>
+    <div class="text-center fs-1 fw-bold">
+        <div class="row m-auto">
+            <!--DIVIDIMOS PANTALLA EN UNA FILA Y DOS COLUMNAS-->
+            <div class="col border fs-3 fw-normal">CONFIGURACION
+                <!--COLUMNA DE CONFIGURACION-->
+                <p class="fs-6">Complete los siguientes campos obligatorios</p>
+                <!--FORMULARIO A CUMPLIMENTAR-->
+                <div class="fs-6 fst-italic" id="mensajes"></div>
+                <form class="form">
+                    <input id="nombreConf" type="text" size="30" class="form-control mt-3" placeholder="Nombre">
+                    <div class="input-group">
+                        <input id="apellido1Conf" type="text" size="60" class="form-control mt-3"
+                            placeholder="Primer Apellido">
+                        <input id="apellido2Conf" type="text" size="60" class="form-control mt-3"
+                            placeholder="Segundo Apellido">
+                    </div>
+                    <input id="empresaConf" type="text" size="60" class="form-control mt-3"
+                        placeholder="Empresa en la que trabaja">
+                    <div class="input-group">
+                        <label class="text-center fs-6 mt-4 mx-3">Seleccione un cargo:</label>
+                        <select id="cargoConf" class="form-select mt-3">
+                            <option selected></option>
+                            <option value="Desarrollador">Desarrollador</option>
+                            <option value="Jefe de equipo">Jefe de equipo</option>
+                            <option value="Responsable de área">Responsable de área</option>
+                        </select>
+                    </div>
+                    <input id="telfConf" type="text" size="9" class="form-control mt-3" placeholder="Número de móvil">
+                    <input id="emailConf" type="text" size="20" class="form-control mt-3"
+                        placeholder="Dirección de email">
+                    <input id="fotoConf" type="file" accept="image/png,image/jpeg" class="form-control mt-3">
+                    <div class="d-flex">
+                        <div>
+                            <div class="fs-6 mt-4 mx-3 text-start">Seleccione un color para el fondo:</div>
+                            <input id="colorFondo" type="color" class="form-control form-control-color mt-3 ms-5"
+                                value="#0000ff">
+                        </div>
+                        <div>
+                            <div class="fs-6 mt-4 mx-3 text-start">Seleccione un color para la letra:</div>
+                            <input id="colorLetra" type="color" class="form-control form-control-color mt-3 ms-5"
+                                value="#ffffff">
+                        </div>
+                    </div>
+                    <input id="reset" type="button" class="btn btn-secondary mb-3 mt-3" value="LIMPIAR CAMPOS">
+                    <input id="generar" type="button" class="btn btn-secondary mb-3 mt-3" value="GENERAR TARJETA"
+                        disabled><!--para generar el qr, ihhabilitado al inicio-->
+
+                    <div><label id="completado"></label></div>
+                    <div class="progress mb-3">
+
+                        <div id="barraProgreso" class="progress-bar progress-bar-striped progress-bar-animated"
+                            style="width:0%"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="col border fs-3 fw-normal">VISTA PREVIA
+                <!--COLUMNA DE DE VISTA PREVIA text-uppercase TODO EN MAYUSCULAS-->
+                <form id="colorView" class="form border border-secondary border-5 text-uppercase text-start rounded ">
+                    <img id="fotoView" class="img-fluid ms-3 mt-3" width="50" height="auto"
+                        src="img/user_icon.jpg"></img>
+                    <label id="nombreView" class="text fs-5 fw-bold ms-3">nombre</label>
+                    <label id="apellido1View" class="text fs-5 fw-bold ms-3">apellido1</label>
+                    <label id="apellido2View" class="text fs-5 fw-bold ms-3">apellido2</label><br>
+                    <label id="empresaView" class="text fs-6 ms-3">empresa</label><br>
+                    <label id="cargoView" class="text fs-6 ms-3">cargo que ocupa</label><br>
+                    <label id="telfView" class="text fs-6 ms-3">telefono</label><br>
+                    <label id="emailView" class="text fs-6 ms-3">email@email.com</label><br>
+                    <div id="codigoQR" class="d-flex justify-content-end me-3 mb-3">
+                        <img id="imgQR" class="img-thumbnail" width="100" height="auto" src=""
+                            alt="QR"><!--aquí se genera la imágen del código QR-->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class=".container-fluid border bg-primary text-center py-3">
+        <p class="h4"><small>&#169 Todos los derechos reservados</small></p>
+    </div>
+    <script src="script/practica1.js"></script>
+</body>
+
+</html>

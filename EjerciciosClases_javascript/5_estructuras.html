@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+</head>
+
+<body style="background-color: rgb(188, 194, 194);">
+
+    <script>
+        console.log(3 + '1')
+        var edad = 16
+
+        if (edad >= 18) {
+            console.info('mayor')
+        } else {
+            console.info('menor')
+        }
+
+        //comprobación ternaria
+        var resultado = edad >= 18 ? console.info('mayor') : console.info('menor')
+
+        if (edad < 18) {
+            console.info('menor de 18')
+        } else if (edad >= 18 && edad < 25) {
+            console.info('entre 18 y 25')
+        } else {
+            console.info('mayor 25')
+        }
+
+        var numero = 2
+        switch (numero) {
+            case 1:
+                console.info('numero 1')
+                break;
+            case 2:
+                console.info('numero 2')
+                break;
+            default:
+                console.info('otro numero')
+        }
+
+        for (let i = 0; i < 5; i++) {
+            console.info('El numero es ' + i)
+        }
+
+        let i = 0
+        while (i < 10) {
+            console.info("El numero es " + i)
+            i++;
+        }
+
+        i = 1
+        do {
+            console.info("El numero es " + i)
+            i++;
+        }
+        while (i <= 3);
+    </script>
+</body>
+
+</html>

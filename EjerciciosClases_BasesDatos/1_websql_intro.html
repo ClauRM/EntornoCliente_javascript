@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>empty demo</title>
+    <style>
+        p {
+            background: yellow;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+
+    <p id="demo">
+        Hello, <span>Person</span> <em>and person</em>.
+    </p>
+
+
+    <script>
+        var myDBInstance = openDatabase('dwecbd', '1.0', 'Ejemplos DAW', 2 * 1024 * 1024);
+
+        if (!myDBInstance) {
+            alert('Problema al crear la base de datos');
+        } else {
+            var version = myDBInstance.version;
+            console.info(version);
+        }
+    </script>
+
+</body>
+
+</html>

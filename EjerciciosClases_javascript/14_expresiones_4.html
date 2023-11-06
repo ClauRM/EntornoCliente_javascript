@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio #1 DOM</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //Expresion Regular Solo Números
+        var ExpRegSoloNumeros = "^[0-9]+$";
+
+        var Numero = "1234f6789";
+
+        if (Numero.match(ExpRegSoloNumeros) != null) {
+            console.log("Numero válido");
+        } else {
+            console.log("Numero NO válido");
+        }
+
+        //Expresion Regular Solo Letras
+        var ExpRegSoloLetras = "^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$";
+
+        var palabra = "QWERTYUIOPA SDFGHJKsLÑZXCVBNM";
+
+        if (palabra.match(ExpRegSoloLetras) != null) {
+            console.log("palabra válida");
+        } else {
+            console.log("palabra NO válida");
+        }
+
+        //números con formato €
+        //Expresión Regular Precio con 2 decimales
+        var ExpRegEuro = "^[0-9]+[.,]{1,1}\[0]{2,2}€+$";
+
+        var importe = "10,00€";
+
+
+        //Evaluación de Cadena Valida de Precio con 2 decimales
+        if (importe.match(ExpRegEuro) != null) {
+            console.log("importe Válido");
+        } else {
+            console.log("importe NO Válido");
+        }
+
+
+        /*INTERPRETA...
+        /^[a-z0-9_-]{3,16}$/
+        /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+        /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/
+        /(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}/
+        /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/
+        /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/
+        
+        
+        
+        
+        */
+    </script>
+</body>
+
+</html>

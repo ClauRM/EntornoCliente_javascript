@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EjercicioToggle_claudiarubio</title>
+    <script src="jquery-3.6.3.min.js"></script>
+    <!--Hacer tres cajas y mostrar/ocultar su contenido. Complejidad de tres cajas y se debe mostrar el que corresponda y ocultar el resto-->
+    <style>
+        * {
+            margin: 5px;
+            padding: 3px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .caja {
+            border: 2px solid blue;
+            border-radius: 5px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!--caja 1 con texto-->
+    <div id="div1" class="caja">
+        <div id="titulo">
+            <h3>Caja 1</h3>
+        </div>
+        <div id="mensaje1" style="display: none"><!--oculta por defecto-->
+            <p>Pulsa en la caja para mostrar u ocultar el texto</p>
+        </div>
+    </div>
+    <!--caja 2 con texto e imagen-->
+    <div id="div2" class="caja">
+        <div id="titulo">
+            <h3>Caja 2</h3>
+        </div>
+        <div id="mensaje2" style="display: none">
+            <p>Pulsa en la caja para mostrar u ocultar al gato</p>
+            <img src="img/gatito.jpg" width="100">
+        </div>
+    </div>
+    <!--caja 3 con texto y lista-->
+    <div id="div3" class="caja">
+        <div id="titulo">
+            <h3>Caja 3</h3>
+        </div>
+        <div id="mensaje3" style="display: none">
+            <p>Pulsa para mostrar u ocultar la lista:</p>
+            <ol>
+                <li>Aviones</li>
+                <li>Barcos</li>
+                <li>Patines</li>
+            </ol>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //ocultar y mostrar elementos de una página web
+        $(document).ready(function () { //cuando se carguen todos los elementos de la pagina, ejecutar la funcion
+            $('#div1').click(function () {//al hacer click sobre el div se ejecuta la funcion
+                $('#mensaje1').toggle("slow");//toggle que oculta o muestra el contenido del id mensaje
+            });
+            $('#div2').click(function () {
+                $('#mensaje2').toggle("slow");
+            });
+            $('#div3').click(function () {
+                $('#mensaje3').toggle("slow");
+            });
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

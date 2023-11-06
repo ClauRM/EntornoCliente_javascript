@@ -1,0 +1,78 @@
+<html>
+
+<head>
+
+</head>
+
+<body style="background-color: rgb(188, 194, 194);">
+    <canvas id="canvas" width="300" height="300"></canvas> <!--elemento HTML canvas se utiliza para dibujar graficos-->
+
+    <script type="text/javascript">
+        //se crean tres elementos de la clase imagen y se almacenan en variables
+        var sun = new Image();
+        var moon = new Image();
+        var earth = new Image();
+
+
+        //funcion init para asignar una src a cada variable de imagen y al cargar la ventana llamar a la funcion dibujar (draw)
+        function init() {
+            //modifica el src de cada imagen
+            sun.src = 'https://www.csie.ntu.edu.tw/~sylee/courses/jscript/canvas/Canvas_sun.png';
+            moon.src = 'https://www.csie.ntu.edu.tw/~sylee/courses/jscript/canvas/Canvas_moon.png';
+            earth.src = 'https://www.csie.ntu.edu.tw/~sylee/courses/jscript/canvas/Canvas_earth.png';
+            //se llama al metodo cuando este preparado para actualizar la animacion draw en la pantalla del navegador
+            window.requestAnimationFrame(draw);
+        }
+
+        //funcion que dibuja la animacion
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d'); //getContext() indica que el contexto del dibujo es en dos dimensiones
+
+            ctx.globalCompositeOperation = 'destination-over'; //cada vez que se realice un nuevo dibujo se le asigna la capa superior
+            ctx.clearRect(0, 0, 300, 300); // Borra cualquier dibujo anterior. Convierte todos los pixeles en el rectangulo a negro transparente
+            // parametros (x, y, width, height)
+
+            ctx.fillStyle = 'rgba(0,0,0,0.4)'; //se activa el color negro (0,0,0) y el grado de transparencia (valor entre 0 y 1)
+            ctx.strokeStyle = 'rgba(0,153,255,0.4)'; //ase plica un patron azul claro (0,153,255) para los contornos
+            ctx.save(); //guarda el estado actual añadiendo a una pila
+            ctx.translate(150, 150); //desplaza el lienzo en las coordenadas x,y (0 es la esquina superior izquierda)
+
+            // Para dibujar la tierra y su rotacion
+            var time = new Date(); //se crea una variable de tiempo
+            ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds()); //aniade una rotacion a la matriz x, y 
+            // recibe como parametro un angulo en radianes
+            // se decribe un angulo de 2*PI  en un tiempo t, denominado velocidad angular 1 rpm
+
+            ctx.translate(105, 0);//desplaza el lienzo en las coordenadas x,y (0 es la esquina superior izquierda)
+            ctx.fillRect(0, -12, 50, 24); // Sombra: dibuja un rectangulo relleno (x, y, width, height)
+            // El estilo del relleno esta determinado por el atributo fillStyle
+            ctx.drawImage(earth, -12, -12); //posiciona a la tierra dentro del canvas: parametros (image, dx, dy) dx y dy esquina superior izquierda de la imagen
+
+            // Guardamos y se repite para dibujar la luna y su rotacion
+            ctx.save();
+            ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds()); //describe el angulo de rotacion
+            ctx.translate(0, 28.5); //desplaza el lienzo
+            ctx.drawImage(moon, -3.5, -3.5); //posiciona a la luna en el canvas
+            ctx.restore(); //restaura el estado del lienzo guardado
+
+            ctx.restore(); //********creo que esta linea esta duplicada********/
+
+            //Para el movimiento de traslacion
+            ctx.beginPath(); //metodo que crea una nueva ruta
+            ctx.arc(150, 150, 105, 0, Math.PI * 2, false); // Órbita terrestre
+            // aniade un arco con centro en la posición (x, y) con radio r empezando en la posicion startAngle
+            // y terminando en endAngle que va en la dirección dada en sentido antihorario
+            // si es true , hace que el arco se dibuje en sentido contrario a las agujas del reloj
+            //arc(x, y, radius, startAngle, endAngle, counterclockwise)
+            ctx.stroke(); //delinea la ruta anterior del arco
+
+            ctx.drawImage(sun, 0, 0, 300, 300); //posiciona al sol
+
+            window.requestAnimationFrame(draw);
+        }
+
+        init(); //llama a la funcion que carga las imagenes y hace el dibujo animado
+    </script>
+</body>
+
+</html>

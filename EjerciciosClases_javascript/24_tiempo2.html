@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<body id="fondo" style="background-color: azure;">
+
+    <h1 id="color">HOLA</h1>
+
+
+    <img id="reloj" src="https://www.ikea.com/es/es/images/products/tjalla-reloj-pared-negro__0790238_pe767383_s5.jpg?f=xs" width="500" height="500" />
+
+    <script>
+        var fondo = document.getElementById("fondo")
+        var color = document.getElementById("color")
+        var reloj = document.getElementById("reloj")
+        var valorAlto = 500
+        var valorAncho = 500
+
+        setInterval(function() { //funcion que esta cambiando el color de fondo cada 1segundo (parametro abajo)
+
+            var rojo = Math.floor(Math.random() * 256) //random rgb hacia la unidad
+            var verde = Math.floor(Math.random() * 256)
+            var achul = Math.floor(Math.random() * 256)
+
+            fondo.style = "background-color: rgb(" + rojo + "," + verde + "," + achul + ");" //cambia el color de fondo al azar entre el rango
+            color.innerHTML = "rgb(" + rojo + "," + verde + "," + achul + ")"
+
+            if (rojo > 125) {
+                valorAncho += 10
+                reloj.width = valorAncho
+            } else {
+                valorAncho -= 10
+                reloj.width = valorAncho
+            }
+            if (achul > 125) {
+                valorAlto += 10
+                reloj.height = valorAlto
+            } else {
+                valorAlto -= 10
+                reloj.height = valorAlto
+            }
+
+        }, 1000); // 1000 = 1 segundo
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript">
+        // https://developer.mozilla.org/es/docs/Web/API/IndexedDB_API
+        //https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/indexeddb/
+        //https://es.javascript.info/indexeddb
+
+
+
+        var db;
+        let openRequest = indexedDB.open("idbdwec", 1); //abrir una conexion contra una BD que se denomina dbdwec y version 1 de la bd que tiene instalada el usuario
+        //let deleteRequest = indexedDB.deleteDatabase("idbdwec")
+
+        //metodo onupgradeneeded contrasta mi version con la de la bd
+        openRequest.onupgradeneeded = function () {
+            // se dispara si el cliente no tiene la base de datos
+            let db = openRequest.result;
+            switch (event.oldVersion) { // revisa la version de db existente y en funcion de ello accede a la opcion
+                //anterior para modificar la estructura de la bd para admitir nuevas funcionalidades. 
+                case 0:
+                    // version 0 significa que el cliente no tiene base de datos
+                    // ejecutar inicialización
+                    let db = openRequest.result;
+                    //verifica si la tabla existe
+                    if (!db.objectStoreNames.contains('usuarios')) { // si no hay un almacen de usuarios 
+                        //sino existe
+                        const store = db.createObjectStore('usuarios', { //createObjectStore crear la tabla
+                            keyPath: 'id',
+                        });
+                        store.createIndex('nombre', 'nombre', { //createIndex crear campo
+                            unique: false
+                        });
+                        store.createIndex('localidad', 'localidad', {
+                            unique: false
+                        });
+                        console.info("creamos usuarios!")
+
+                    } else {
+                        console.info("tenemos usuarios!")
+                    }
+                case 1:
+                // el cliente tiene la versión 1
+                // actualizar
+                //let deleteRequest = indexedDB.deleteDatabase(name)
+                //db.deleteObjectStore('usuarios')
+
+            }
+        };
+
+        //proceso asincrono si se ha producido algun error
+        openRequest.onerror = function () {
+            console.error("Error", openRequest.error);
+        };
+
+        //proceso asincrono si se ha ejecutado correctamente
+        openRequest.onsuccess = function () {
+            db = openRequest.result;
+            // continúa trabajando con la base de datos usando el objeto db
+            console.info("tenemos bd!")
+        };
+
+        //insertar datos
+        function insertar() {
+            //montar una transaccion dependiendo de que se va a hacer se conceden unos permisos u otros
+            let transaction = db.transaction("usuarios", "readwrite"); // (1)
+            console.log("conectado");
+            // obtiene un almacén de objetos para operar con él
+            let usuarios = transaction.objectStore("usuarios"); // (2) //abrimos la transaccion sobre una determinada tabla
+            console.log("lista creada");
+            let usuario = { //datos formato json
+                id: "3",
+                nombre: "pepe"
+            };
+            console.log("usuario creado");
+            let request = usuarios.add(usuario); // (3) // metodo add: aniadir datos a la tabla
+            console.log("usuario en listado");
+            //promisses
+            request.onsuccess = function () { // (4)
+                console.log("Usuario agregado", request.result);
+            };
+
+            request.onerror = function () {
+                console.log("Hay un error", request.error);
+            };
+        }
+
+        // Eliminar la base de datos
+        function borrarDatos() {
+            //complejidad en localizar el objeto que queremos borrar
+            var request = db.transaction("usuarios", "readwrite")
+                .objectStore("usuarios")
+                .delete("3"); //metodo delete: elimina el registro identificado en parentesis
+            request.onsuccess = function (event) {
+                console.info("Eliminado")
+            };
+
+        }
+
+        // Modificar-actualizar los datos
+        function modificar() {
+
+            var objectStore = db.transaction("usuarios", "readwrite").objectStore("usuarios");
+            var request = objectStore.get("3");//acceder exactamente al registro que queremos modificar (esto es lo complicado)
+            //promisses
+            request.onerror = function (event) {
+                // Handle errors!
+                console.info("Se ha producido un error!")
+            };
+            request.onsuccess = function (event) {
+                // Obtener el objeto antiguo que queremos actualizar
+                var data = request.result;
+
+                // actualizar los valores en el objeto 
+                data.nombre = "MARIA";
+
+                // Volver a colocar el objeto actualizado en la base de datos
+                var requestUpdate = objectStore.put(data); //metodo put: hace la modificacion
+                //promisses
+                requestUpdate.onerror = function (event) {
+                    console.info("no se puede modificar");
+                };
+                requestUpdate.onsuccess = function (event) {
+                    console.info("modificado!");
+                };
+            };
+
+
+        }
+        // Consultar datos
+        function consultar() {
+            //cuando se consulta puede pasar que devuelva un conjunto de datos o no, establecer control
+            var objectStore = db.transaction("usuarios").objectStore("usuarios");
+            objectStore.openCursor().onsuccess = function (event) {
+                var cursor = event.target.result; //cursor = resulset, del conjunto de datos es el primer registro
+                //el cursor debe estar dentro de un bucle cuando hay mas registros
+                if (cursor) {
+                    console.log(cursor.value.id);
+                    console.log(cursor.value.nombre);
+                    cursor.continue(); //para recorrerlo hay que mover el puntero con continue
+                } else {
+                    console.log("¡No hay más registros disponibles!");
+                }
+            };
+
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="insertar()"> Insertar datos </button>
+    <button onclick="borrarDatos()"> Eliminar </button>
+    <button onclick="modificar (1, 'Lola', '654321')"> Actualice los datos del No. 1 </button>
+    <button onclick="consultar()"> Consultar datos </button>
+
+    <div id="demo">
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html>
+
+<head>
+
+</head>
+
+<body style="background-color: rgb(188, 194, 194);">
+
+    <script>
+        //función con return
+        function mensaje(texto, texto2) {
+
+            return texto + texto2
+        }
+
+        console.info(mensaje('hola', ' mundo'))
+
+        //funcion anónima
+        var dato = function() {
+            return 1
+        }
+
+        console.warn(dato())
+
+        var valor = function(texto) {
+            return 'Holaaa ' + texto
+        }
+
+        console.warn(valor('mundo'))
+
+        //funcion arrow
+        var mensaje = 'Hola Mundo'
+        var saludar = (nombre) => `hola ${nombre}` //return automático
+
+        console.info(saludar('pepe'))
+
+        var despedir = (nombre) => {
+            var dato = '.'
+            return `hasta luego ${nombre}${dato}`
+        }
+
+        console.info(despedir('pepe'))
+        console.info(despedir(''))
+    </script>
+</body>
+
+</html>

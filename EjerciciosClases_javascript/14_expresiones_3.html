@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio #1 DOM</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //quitamos números
+        var reg = /\d/g;
+        var str = "Java323Scr995ip4894545t";
+        var newStr = str.replace(reg, "");
+        console.log(newStr + " sin números");
+
+        //quitamos espacios
+        reg = / /g;
+        str = " Java  Scr ip t ";
+        newStr = str.replace(reg, "");
+        console.log(newStr + " sin espacios");
+
+        //quitamos rango
+        reg = /[A-Z]/g;
+        str = "JavaScript";
+        newStr = str.replace(reg, "");
+        console.log(newStr + " sin mayúsculas");
+    </script>
+</body>
+
+</html>

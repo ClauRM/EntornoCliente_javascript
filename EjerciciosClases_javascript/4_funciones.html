@@ -1,0 +1,63 @@
+<html>
+
+<head>
+
+</head>
+
+<body style="background-color: rgb(188, 194, 194);">
+
+    <script>
+        const VALOR = 11;
+
+        function mensaje() {
+            console.log('Hola Mundo')
+        }
+
+        mensaje();
+
+        mensaje2('holaaaa')
+
+        function mensaje2(texto) {
+            console.log(texto)
+        }
+
+        mensaje2('hola mundo')
+
+        function mensaje3(texto, texto2) {
+            console.log(texto + texto2)
+        }
+
+        mensaje3('hola', ' mundo')
+
+        /*    
+        function mensaje3() {
+            var texto
+            console.log(texto)
+        }
+
+        mensaje3()
+        console.log(texto)
+        */
+
+        function mensaje5(texto, texto2 = ' pepe') {
+            console.log(texto + texto2)
+        }
+
+        mensaje5('hola')
+
+        function limpiar(texto) {
+
+            texto = texto.trim()
+
+            texto = texto.replace(';', '')
+            texto = texto.replace('%', '')
+            texto = texto.replaceAll('.', '') //revisar todas
+            texto = texto.replace('DROP', '')
+            return texto
+        }
+
+        console.warn(limpiar('pepe.%....;'))
+    </script>
+</body>
+
+</html>

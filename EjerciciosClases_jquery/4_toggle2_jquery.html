@@ -1,0 +1,28 @@
+<html lang="en">
+
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+
+    <input id="boton" type="button" value="alternar función">
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#boton').click(function() {
+                $("#boton").toggle(function() {
+                    console.info("primera");
+                }, function() {
+                    console.info("segunda");
+                });
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
